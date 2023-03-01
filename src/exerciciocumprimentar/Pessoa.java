@@ -1,85 +1,36 @@
 package exerciciocumprimentar;
 
-/**
- * The type Pessoa.
- */
 public class Pessoa {
+    private String nome;
+    private int idade;
+    private static final String NOME_POR_OMISSAO = "sem nome";
 
+    public Pessoa() {
 
-    /**
-     * The Nome.
-     */
-    public String nome;
-    /**
-     * The Idade.
-     */
-    public int idade;
+    }
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
 
-    /**
-     * Instantiates a new Pessoa.
-     *
-     * @param nome  the nome
-     * @param idade the idade
-     */
     public Pessoa(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
     }
 
-    /**
-     * Instantiates a new Pessoa.
-     */
-    public Pessoa() {
-    }
-
-    /**
-     * Gets nome.
-     *
-     * @return the nome
-     */
     public String getNome() {
         return nome;
     }
 
-    /**
-     * Sets nome.
-     *
-     * @param nome the nome
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    /**
-     * Gets idade.
-     *
-     * @return the idade
-     */
     public int getIdade() {
         return idade;
     }
 
-    /**
-     * Sets idade.
-     *
-     * @param idade the idade
-     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public void setIdade(int idade) {
         this.idade = idade;
-    }
-
-    /**
-     * Apresentar.
-     */
-    public void apresentar() {
-        System.out.println("O nome é " + this.getNome() + " e tem " + this.getIdade() + " anos.");
-    }
-
-    /**
-     * Cumprimentar.
-     */
-    public void cumprimentar() {
-        System.out.println("Olá " + this.getNome() + ". " + " Tudo bem?" );
     }
 
     @Override
@@ -91,3 +42,5 @@ public class Pessoa {
         return sb.toString();
     }
 }
+
+
