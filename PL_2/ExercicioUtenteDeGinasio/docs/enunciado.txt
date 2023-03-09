@@ -1,0 +1,37 @@
+1. Um utente de ginásio tem como atributos o nome, género, idade, altura e peso. Implemente uma classe 
+em JAVA para criar instância de utente, que disponibilize as seguintes funcionalidades:
+a) construtores (pelo menos):
+§ vazio. O valor por omissão para cada atributo deve estar representado numa constante;
+§ com dois parâmetros: nome e idade;
+§ completo;
+b) métodos para aceder individualmente aos atributos de um utente;
+c) métodos para alterar individualmente os atributos de um utente;
+d) obter a representação textual e legível de um utente;
+e) determinar a diferença de idades (valor relativo) entre dois utentes;
+f) calcular o índice de massa corporal (IMC) de um utente de acordo com a fórmula abaixo apresentada. 
+As unidades de medida do peso e da altura são o quilograma e o metro, respetivamente;
+IMC = Peso/Altura!
+
+g) determinar o grau de obesidade de um utente de acordo com a tabela seguinte. No entanto, os valores 
+de referência do IMC podem sofrer alterações;
+IMC Classificação
+<18 Magro
+[18, 25] Saudável
+>25 Obeso
+h) verificar se um utente tem, relativamente ao grau de obesidade, a classificação “Saudável”;
+i) determinar entre dois utentes qual é o mais novo. Se ambos tiverem a mesma idade deve ser 
+retornado um valor indicador desta situação;
+j) obter o número de instância de utente criadas.
+Escreva os comentários em formato Javadoc para documentar apropriadamente a classe implementada.
+2. Crie uma nova classe para invocar as funcionalidades implementadas. Para isso:
+a) crie um conjunto de instâncias de utentes;
+b) armazene estas instâncias num contentor do tipo array;
+c) programe as seguintes listagens separadas, sobre o contentor para:
+i. obter a representação textual e legível de cada utente;
+ii. obter o nome, valor do IMC e grau de obesidade de cada utente;
+iii. obter o nome e o grau de obesidade de cada utente que não tenha a classificação “Saudável”.
+d) altere os valores de referência do IMC para cálculo do grau de obesidade e volte a fazer a listagem com 
+o nome, valor do IMC e grau de obesidade de cada utente;
+e) altere o valor da idade de um utente para o valor da idade de outro;
+f) invoque o método para determinar qual dois utentes, usados na alínea anterior, é o mais novo.
+Implemente código para apresentar uma mensagem adequada
