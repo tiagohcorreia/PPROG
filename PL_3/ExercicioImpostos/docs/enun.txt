@@ -1,0 +1,27 @@
+Usando a seguinte metodologia proceda à implementação de uma solução:
+1. Represente, em notação UML, o diagrama de classes. Considere que as classes devem ser definidas 
+tendo em conta os princípios de encapsulamento, herança e polimorfismo.
+
+2. Para cada classe deve implementar, pelo menos, dois construtores, o construtor completo e o 
+construtor sem parâmetros. Deve também proceder à implementação de métodos de acesso e de 
+modificação relevantes e o método toString().
+
+3. Implemente o diagrama de classes.
+
+4. Crie uma classe, para invocar as funcionalidades das classes implementadas anteriormente, com a
+seguintes instruções:
+
+a) Criação de dois objetos de cada classe instanciável.
+
+b) Criação e preenchimento um contentor do tipo array com comprimento superior ao número de 
+objetos criados.
+
+c) Varrimento do contentor para apresentação de cada objeto e respetivo valor do imposto 
+extraordinário.
+
+d) Varrimento do contentor para apresentação do nome e imposto extraordinário a pagar pelos 
+contribuintes desempregados.
+
+e) Altere o valor da taxa aplicar aos OR dos desempregados.
+
+f) Repita o varrimento da alínea d

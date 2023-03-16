@@ -1,0 +1,31 @@
+@startuml
+
+class Trabalhador {
+    - String nome2
+    + calcularVencimento()
+}
+class TrabalhadorPeca {
+    - int numeroPecasTipo1
+    - int numeroPecasTipo2
+    + calcularVencimento()
+    + setPagamentoPeca2()
+
+}
+class TrabalhadorComissao {
+    - float vendas
+    - float salarioBase
+    - float comissao
+    + calcularVencimento()
+}
+class TrabalhadorHora {
+    - int numeroHoras
+    - float pagamentoHora
+    + calcularVencimento()
+}
+
+TrabalhadorPeca --|> Trabalhador
+TrabalhadorComissao --|> Trabalhador
+TrabalhadorHora --|> Trabalhador
+
+
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+
+abstract class Contribuinte {
+    - String nome
+    - String morada
+    - double outrosRendimentos
+    + calcuarImposto()
+}
+abstract class ContribuinteComRendimentoDeTrabalho {
+    -  double rendimentosDeTrabalho
+    + calcularImposto()
+}
+class Reformado {
+    + calcularImposto()
+}
+class TrabalhadorPorContaOutrem {
+    + calcularImposto()
+}
+class TrabalhadorPorContaPropria {
+    + calcularImposto()
+}
+class Desempregado {
+    + calcularImposto()
+}
+
+ContribuinteComRendimentoDeTrabalho --|> Contribuinte
+Reformado --|> ContribuinteComRendimentoDeTrabalho
+TrabalhadorPorContaOutrem --|> ContribuinteComRendimentoDeTrabalho
+TrabalhadorPorContaPropria --|> ContribuinteComRendimentoDeTrabalho
+Desempregado --|> Contribuinte
+
+
+
+
+@enduml
