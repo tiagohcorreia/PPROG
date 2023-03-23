@@ -1,0 +1,43 @@
+@startuml
+
+class Contador {
+    - int consumo
+    - String nomeCliente
+    - String identificador
+    + double calcularCustoConsumo()
+
+}
+class ContadorEletricidade {
+    - String PREFIXO_CONTADOR_ELETRICIDADE
+    - int totalContadoresEletricidade
+    + int getTotalContadoresEletricidade()
+    + double calcularCustoConsumo()
+
+}
+class ContadorEletricidadeComTarifarioSimples {
+    - double potenciaContratada
+    - double VALOR_REFERENCIA_POTENCIA
+    - double MAXIMO_TARIFARIO_SIMPLES
+    - double MINIMO_TARIFARIO_SIMPLES
+    + double calcularCustoConsumo()
+}
+class ContadorEletricidadeComTarifarioBiHorario {
+    - int consumo2;
+    - static  double HORA_DE_VAZIO
+    - static  double HORA_FORA_DE_VAZIO
+    + double calcularCustoConsumo()
+}
+class ContadorGas {
+    - String PREFIXO_CONTADOR_GAS
+    - int totalContadorGas
+    - static final double CUSTO_UNITARIO
+    + double calcularCustoConsumo()
+}
+
+ContadorEletricidadeComTarifarioSimples --> ContadorEletricidade
+ContadorEletricidadeComTarifarioBiHorario --> ContadorEletricidade
+
+ContadorEletricidade --> Contador
+ContadorGas --> Contador
+
+@enduml

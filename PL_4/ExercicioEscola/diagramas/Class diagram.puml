@@ -1,0 +1,37 @@
+@startuml
+
+class Pessoa {
+    - String nome
+    - int numeroId
+}
+
+class Professor {
+    - String categoria
+    - String ASSISTENTE
+    - String ADJUNTO
+    - String COORDENADOR
+    - double salarioBase
+    + calcularPagamento()
+    - calcularMajoracao()
+}
+class Estudante {
+    - int numeroMecanografico
+}
+class EstudanteBolseiro {
+    - double bolsa
+    + double calcularPagamento()
+}
+
+interface Pagamento {
+    + double calcularPagamento()
+}
+
+Professor -> Pagamento
+EstudanteBolseiro --> Pagamento
+
+Professor --> Pessoa
+Estudante --> Pessoa
+
+EstudanteBolseiro --> Estudante
+
+@enduml

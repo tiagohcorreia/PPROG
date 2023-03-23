@@ -1,0 +1,64 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Contador {
+  + Contador(String, int, String): 
+  - nomeCliente: String
+  - identificador: String
+  - consumo: int
+  + getIdentificador(): String
+  + setIdentificador(String): void
+  + toString(): String
+  + setConsumo(int): void
+  + setNomeCliente(String): void
+  + calcularCustoConsumo(): double
+  + getConsumo(): int
+  + getNomeCliente(): String
+}
+class ContadorEletricidade {
+  + ContadorEletricidade(String, int, String): 
+  # totalContadoresEletricidade: int
+  - PREFIXO_CONTADOR_ELETRICIDADE: String
+  + calcularCustoConsumo(): double
+  + getTotalContadoresEletricidade(): int
+  + toString(): String
+  + getPREFIXO_CONTADOR_ELETRICIDADE(): String
+}
+class ContadorEletricidadeTarifarioBiHorario {
+  + ContadorEletricidadeTarifarioBiHorario(String, int, String): 
+  - HORA_DE_VAZIO: double
+  - HORA_FORA_DE_VAZIO: double
+  + toString(): String
+  + calcularCustoConsumo(): double
+}
+class ContadorEletricidadeTarifarioSimples {
+  + ContadorEletricidadeTarifarioSimples(String, int, double, String): 
+  - VALOR_REFERENCIA_POTENCIA: double
+  - MAXIMO_TARIFARIO_SIMPLES: double
+  - potenciaContratada: double
+  - MINIMO_TARIFARIO_SIMPLES: double
+  + calcularCustoConsumo(): double
+  + toString(): String
+}
+class ContadorGas {
+  + ContadorGas(String, int, String): 
+  - PREFIXO_CONTADOR_GAS: String
+  - CUSTO_UNITARIO: double
+  - totalContadoresGas: int
+  + toString(): String
+  + calcularCustoConsumo(): double
+  + getTotalContadoresGas(): int
+}
+class MainContadores {
+  + MainContadores(): 
+  + main(String[]): void
+}
+
+ContadorEletricidade                    -[#000082,plain]-^  Contador                               
+ContadorEletricidadeTarifarioBiHorario  -[#000082,plain]-^  ContadorEletricidade                   
+ContadorEletricidadeTarifarioSimples    -[#000082,plain]-^  ContadorEletricidade                   
+ContadorGas                             -[#000082,plain]-^  Contador                               
+@enduml

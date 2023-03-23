@@ -1,0 +1,36 @@
+Uma empresa de distribuição de gás e eletricidade pretende um programa para fazer a gestão de contadores 
+domésticos. Os contadores existentes são de três tipos: gás, eletricidade com tarifário simples e eletricidade 
+com tarifário bi-horário. Os contadores registam apenas o consumo do mês atual (número inteiro), sendo o 
+gás medido em m3 e a eletricidade em kWh. Os contadores bi-horários registam dois consumos do mês atual: 
+nas horas de vazio e fora das horas de vazio. Cada contador tem uma identificação que distingue os contadores 
+de gás dos de eletricidade, com o seguinte formato: GAS-X e ELECT-Y, sendo X e Y números inteiros desde 1. 
+Por exemplo, GAS-1, GAS-2, ELECT-1, ELECT-2, etc.
+Elabore as classes representativas dos contadores, usando o seguinte procedimento: 
+1. Esboce um diagrama de classes, em notação UML, considerando que as classes dos contadores devem 
+permitir calcular o custo do consumo registado. O custo do consumo de gás é dado pela seguinte 
+fórmula: custo unitário x consumo, sendo o custo unitário igual a 0.8€/m3
+. O custo do consumo de 
+eletricidade é baseado na tabela abaixo. Assumir que os custos unitários poderão ser atualizados no 
+futuro, que pode ser preciso listar os nomes dos clientes que possuem contadores e que os 
+identificadores dos contadores são criados automaticamente.
+Potência 
+Contratada
+Tarifário 
+Simples
+Tarifário Bi-Horário
+Horas de Vazio Horas Fora de Vazio
+< 6.9 KVA 0.13 €/KWH 0.066 €/KWH 0.14 €/KWH ≥ 6.9 KVA 0.16 €/KWH
+2. Implemente as classes do diagrama. 
+3. Crie testes unitários para os métodos que calculam o custo do consumo de gás ou de eletricidade.
+4. Analise a cobertura de testes através do plugin Maven JaCoCo (Java Code Coverage).
+Crie um programa que satisfaça os seguintes requisitos:
+a) Construa objetos de cada uma das classes instanciáveis e guarde-os num contentor do tipo array;
+b) Liste os identificadores dos contadores, acompanhados dos respetivos nomes dos clientes, 
+armazenados no contentor;
+c) Mostre a quantidade de contadores de eletricidade criados;
+d) Liste os identificadores dos contadores de eletricidade com tarifário bi-horário, armazenados no 
+contentor;
+e) Liste os identificadores dos contadores, acompanhados do respetivo custo do consumo. Para o efeito 
+deve usar o mecanismo do polimorfismo, sem recorrer ao método reescrito toString;
+f) Mostre o maior valor consumido de gás;
+g) Liste os nomes dos clientes, sem repetições, que possuem contadores

@@ -1,0 +1,30 @@
+Uma escola pretende um programa para auxiliar o cálculo dos valores mensais a pagar a alguns dos seus 
+elementos: professores e alunos. Os professores que lecionam na escola recebem mensalmente um salário. 
+Os alunos que sejam bolseiros recebem mensalmente uma bolsa. No entanto, os alunos que não sejam 
+bolseiros não recebem nada.
+Os professores e alunos são caraterizados pelo seu nome e número de identificação civil. Um professor é 
+caraterizado também pela sua categoria, que pode ser uma entre: Assistente, Adjunto ou Coordenador. Um 
+aluno é também caraterizado pelo seu número mecanográfico.
+O salário mensal de um professor é determinado pelo valor de um salário base, que é igual para todos os 
+professores, acrescido de um valor extra associado à sua categoria. O valor do salário base pode ser alterado,
+tal como o valor da majoração associado a cada categoria. Assuma que o valor do salário base é de 1500€ e 
+que o valor da majoração, aplicada sobre o valor do salário base, é de 20% para os adjuntos e 50% para os 
+coordenadores. Os assistentes não têm majoração.
+O valor da bolsa mensal é diferente entre alunos bolseiros, ainda que o valor da mesma possa ser alterado.
+Elabore as classes representativas dos elementos da escola, usando o seguinte procedimento:
+1. Esboce um diagrama de classes, em notação UML;
+2. Implemente as entidades e as relações do diagrama;
+3. Crie testes unitários para testar o método referente ao vencimento de um professor. Tenha em 
+consideração que deve efetuar testes unitários que permitam validar todas as categorias de um 
+professor;
+4. Analise a cobertura de testes através do plugin Maven JaCoCo (Java Code Coverage);
+Crie um programa que satisfaça os seguintes requisitos:
+a) Construa objetos de cada uma das classes instanciáveis e guarde-os num contentor do tipo array;
+b) Liste o nome e categoria dos professores armazenado no contentor;
+c) Liste o número mecanográfico de todos os alunos que não são bolseiros;
+d) Liste os nomes dos professores e alunos, armazenados no contentor. A listagem deve incluir, para cada 
+objeto, a designação da classe;
+e) Liste os nomes e valores dos salários dos professores armazenados no contentor;
+f) Liste os nomes e valores das bolsas dos alunos bolseiros armazenados no contentor;
+g) Mostre os valores totais dos encargos com: professores e alunos bolseiros. O total dos encargos da 
+escola deve também ser apresentado
