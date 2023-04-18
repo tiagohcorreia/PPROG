@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TrabalhadorContaPropria.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PL10-ImpostosComInterfacesEEquals</a> &gt; <a href="index.source.html" class="el_package">impostos</a> &gt; <span class="el_source">TrabalhadorContaPropria.java</span></div><h1>TrabalhadorContaPropria.java</h1><pre class="source lang-java linenums">package impostos;
+
+/**
+ * Representa um trabalhador por conta própria através do seu nome, morada,
+ * rendimentos do trabalho, outros rendimentos e profissão.
+ *
+ * @author ISEP-DEI-PPROG
+ */
+public class TrabalhadorContaPropria extends ContribuinteComRendimentosTrabalho {
+
+    /**
+     * A profissão do trabalhador por conta própria.
+     */
+    private String profissao;
+
+    /**
+     * O nome da profissão por omissão.
+     */
+    private static final String PROFISSAO_POR_OMISSAO = &quot;sem profissão&quot;;
+
+    /**
+     * O limite do 1º escalão dos outros rendimentos dos trabalhadores por conta
+     * própria.
+     */
+<span class="fc" id="L25">    private static float escalao1OutrosRendimentos = 50000;</span>
+    
+    /**
+     * A taxa(%) sobre os rendimentos do trabalho aplicada a todos os 
+     * trabalhadores por conta própria.
+     */
+<span class="fc" id="L31">    private static float taxaRendimentosTrabalho = 3;</span>
+    
+    /**
+     * A taxa(%) sobre os outros rendimentos 1 aplicada a todos os trabalhadores
+     * por conta própria.
+     */
+<span class="fc" id="L37">    private static float taxaOutrosRendimentos1 = 2;</span>
+    
+    /**
+     * A taxa(%) sobre os outros rendimentos 2 aplicada a todos os trabalhadores
+     * por conta própria.
+     */
+<span class="fc" id="L43">    private static float taxaOutrosRendimentos2 = 5;</span>
+
+    /**
+     * Constrói uma instância de TrabalhadorContaPropria recebendo o seu nome, 
+     * morada, rendimentos do trabalho, outros rendimentos e profissão.
+     *
+     * @param nome o nome do trabalhador por conta própria
+     * @param morada a morada do trabalhador por conta própria
+     * @param rendimentosTrabalho os rendimentos do trabalho do trabalhador por 
+     *                            conta própria
+     * @param outrosRendimentos outros rendimentos do trabalhador por conta 
+     *                          própria
+     * @param profissao a profissão do trabalhador por conta própria
+     */
+    public TrabalhadorContaPropria(String nome, 
+                                     String morada, 
+                                     float rendimentosTrabalho, 
+                                     float outrosRendimentos,
+                                     String profissao) {
+<span class="fc" id="L62">        super(nome, morada, rendimentosTrabalho, outrosRendimentos);</span>
+<span class="fc" id="L63">        this.profissao = profissao;</span>
+<span class="fc" id="L64">    }</span>
+
+    /**
+     * Constrói uma instância de TrabalhadorContaPropria atribuindo o nome por 
+     * omissão, a morada por omissão, a profissão por omissão, os rendimentos 
+     * do trabalho por omissão e os outros rendimentos por omissão.
+     */
+    public TrabalhadorContaPropria() {
+<span class="nc" id="L72">        super();</span>
+<span class="nc" id="L73">        profissao = PROFISSAO_POR_OMISSAO;</span>
+<span class="nc" id="L74">    }</span>
+
+    /**
+     * Devolve a profissão do trabalhador por conta própria.
+     *
+     * @return profissão do trabalhador por conta própria
+     */
+    public String getProfissao() {
+<span class="fc" id="L82">        return profissao;</span>
+    }
+
+    /**
+     * Modifica a profissão do trabalhador por conta própria.
+     *
+     * @param profissao a nova profissão do trabalhador por conta própria
+     */
+    public void setProfissao(String profissao) {
+<span class="nc" id="L91">        this.profissao = profissao;</span>
+<span class="nc" id="L92">    }</span>
+
+    /**
+     * Devolve a descrição textual do trabalhador por conta própria.
+     *
+     * @return características do trabalhador por conta própria
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L101">        return String.format(&quot;TRABALHADOR POR CONTA PROPRIA %n%s&quot;</span>
+<span class="nc" id="L102">                             + &quot;%nProfissao: %s &quot;, super.toString(), profissao);</span>
+    }
+
+    /**
+     * Compara o trabalhador por conta própria com o objeto recebido.
+     *
+     * @param outroObjeto o objeto a comparar com o trabalhador por conta
+     *                    própria
+     * @return true se o objeto recebido representar outro trabalhador por conta
+     *         própria equivalente ao trabalhador por conta própria. Caso 
+     *         contrário, retorna false.
+     */
+    @Override
+    public boolean equals(Object outroObjeto) {
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if (!super.equals(outroObjeto)) {</span>
+<span class="fc" id="L117">            return false;</span>
+        }
+<span class="fc" id="L119">        TrabalhadorContaPropria outroTrabalhadorContaPropria = </span>
+                (TrabalhadorContaPropria) outroObjeto;
+<span class="fc" id="L121">        return profissao.equalsIgnoreCase(outroTrabalhadorContaPropria.profissao);</span>
+    }    
+
+    /**
+     * Devolve a taxa sobre os rendimentos do trabalho do trabalhador por conta
+     * própria.
+     *
+     * @return taxa(%) sobre os rendimentos do trabalho do trabalhador por conta
+     *         própria
+     */
+    @Override
+    public float obterTaxaRendimentosTrabalho() {
+<span class="nc" id="L133">        return taxaRendimentosTrabalho;</span>
+    }
+
+    /**
+     * Devolve a taxa sobre os outros rendimentos do trabalhador por conta
+     * própria.
+     *
+     * @return taxa(%) sobre os outros rendimentos do trabalhador por conta
+     *         própria
+     */
+    @Override
+    public float obterTaxaOutrosRendimentos() {
+<span class="nc bnc" id="L145" title="All 2 branches missed.">        return (getOutrosRendimentos() &lt;= escalao1OutrosRendimentos)</span>
+                ? taxaOutrosRendimentos1
+                : taxaOutrosRendimentos2;
+    }
+
+    /**
+     * Devolve o limite do 1º escalão dos outros rendimentos dos trabalhadores
+     * por conta própria.
+     *
+     * @return o limite do 1º escalão dos outros rendimentos dos trabalhadores
+     *         por conta própria
+     */
+    public static float getEscalao1OutrosRendimentos() {
+<span class="nc" id="L158">        return escalao1OutrosRendimentos;</span>
+    }
+
+    /**
+     * Devolve a taxa sobre os rendimentos do trabalho aplicada a todos os
+     * trabalhadores por conta própria.
+     *
+     * @return taxa(%) sobre os rendimentos do trabalho dos trabalhadores por
+     *         conta própria
+     */
+    public static float getTaxaRendimentosTrabalho() {
+<span class="nc" id="L169">        return taxaRendimentosTrabalho;</span>
+    }
+
+    /**
+     * Devolve a taxa sobre os outros rendimentos 1 aplicada a todos os
+     * trabalhadores por conta própria.
+     *
+     * @return taxa(%) sobre os outros rendimentos 1 dos trabalhadores por 
+     *         conta própria
+     */
+    public static float getTaxaOutrosRendimentos1() {
+<span class="nc" id="L180">        return taxaOutrosRendimentos1;</span>
+    }
+
+    /**
+     * Devolve a taxa sobre os outros rendimentos 2 aplicada a todos os
+     * trabalhadores por conta própria.
+     *
+     * @return taxa(%) sobre os outros rendimentos 2 dos trabalhadores por 
+     *         conta própria
+     */
+    public static float getTaxaOutrosRendimentos2() {
+<span class="nc" id="L191">        return taxaOutrosRendimentos2;</span>
+    }
+
+    /**
+     * Modifica a taxa sobre os rendimentos do trabalho aplicada a todos os
+     * trabalhadores por conta própria.
+     *
+     * @param taxaRendimentosTrabalho a nova taxa(%) sobre os rendimentos do 
+     *                                trabalho dos trabalhadores por conta 
+     *                                própria
+     */
+    public static void setTaxaRendimentosTrabalho(float taxaRendimentosTrabalho) {
+<span class="nc" id="L203">        TrabalhadorContaPropria.taxaRendimentosTrabalho = taxaRendimentosTrabalho;</span>
+<span class="nc" id="L204">    }</span>
+
+    /**
+     * Modifica a taxa sobre os outros rendimentos 1 aplicada a todos os
+     * trabalhadores por conta própria.
+     *
+     * @param taxaOutrosRendimentos1 a nova taxa(%) sobre os outros 
+     *                               rendimentos 1 dos trabalhadores por conta
+     *                               própria
+     */
+    public static void setTaxaOutrosRendimentos1(float taxaOutrosRendimentos1) {
+<span class="nc" id="L215">        TrabalhadorContaPropria.taxaOutrosRendimentos1 = taxaOutrosRendimentos1;</span>
+<span class="nc" id="L216">    }</span>
+
+    /**
+     * Modifica a taxa sobre os outros rendimentos 2 aplicada a todos os
+     * trabalhadores por conta própria.
+     *
+     * @param taxaOutrosRendimentos2 a nova taxa(%) sobre os outros rendimentos 2
+     *                               dos trabalhadores por conta própria
+     */
+    public static void setTaxaOutrosRendimentos2(float taxaOutrosRendimentos2) {
+<span class="nc" id="L226">        TrabalhadorContaPropria.taxaOutrosRendimentos2 = taxaOutrosRendimentos2;</span>
+<span class="nc" id="L227">    }</span>
+
+    /**
+     * Modifica o limite do 1º escalão dos outros rendimentos dos trabalhadores
+     * por conta própria.
+     *
+     * @param escalao1OutrosRendimentos o novo limite do 1º escalão dos outros 
+     *                                  rendimentos dos trabalhadores por conta 
+     *                                  própria
+     */
+    public static void setEscalao1OutrosRendimentos(float escalao1OutrosRendimentos) {
+<span class="nc" id="L238">        TrabalhadorContaPropria.escalao1OutrosRendimentos = escalao1OutrosRendimentos;</span>
+<span class="nc" id="L239">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

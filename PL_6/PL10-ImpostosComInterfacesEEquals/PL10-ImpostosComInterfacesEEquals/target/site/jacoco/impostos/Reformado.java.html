@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Reformado.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PL10-ImpostosComInterfacesEEquals</a> &gt; <a href="index.source.html" class="el_package">impostos</a> &gt; <span class="el_source">Reformado.java</span></div><h1>Reformado.java</h1><pre class="source lang-java linenums">package impostos;
+
+/**
+ * Representa um reformado através do seu nome, morada, rendimentos do trabalho
+ * e outros rendimentos.
+ *
+ * @author ISEP-DEI-PPROG
+ */
+public class Reformado extends ContribuinteComRendimentosTrabalho {
+
+    /**
+     * A taxa(%) sobre os rendimentos do trabalho aplicada a todos os reformados.
+     */
+<span class="fc" id="L14">    private static float taxaRendimentosTrabalho = 1;</span>
+    
+    /**
+     * A taxa(%) sobre os outros rendimentos aplicada a todos os reformados.
+     */
+<span class="fc" id="L19">    private static float taxaOutrosRendimentos = 3;</span>
+
+    /**
+     * Constrói uma instância de Reformado recebendo o seu nome, morada,
+     * rendimentos do trabalho e outros rendimentos.
+     *
+     * @param nome o nome do reformado
+     * @param morada a morada do reformado
+     * @param rendimentosTrabalho o montante dos rendimentos do trabalho do 
+     *                            reformado
+     * @param outrosRendimentos o montante dos outros rendimentos do reformado
+     */
+    public Reformado(String nome, String morada, float rendimentosTrabalho, 
+                     float outrosRendimentos) {
+<span class="fc" id="L33">        super(nome, morada, rendimentosTrabalho, outrosRendimentos);</span>
+<span class="fc" id="L34">    }</span>
+
+    /**
+     * Constrói uma instância de Reformado atribuindo o nome por omissão, a
+     * morada por omissão, os rendimento do trabalho por omissão e os outros 
+     * rendimentos por omissão.
+     */
+    public Reformado() {
+<span class="nc" id="L42">        super();</span>
+<span class="nc" id="L43">    }</span>
+
+    /**
+     * Devolve a descrição textual do reformado.
+     *
+     * @return caracter�sticas do reformado
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L52">        return String.format(&quot;REFORMADO %n%s &quot;, super.toString()); </span>
+    }
+
+    /**
+     * Devolve a taxa sobre os rendimentos do trabalho do reformado.
+     *
+     * @return taxa(%) sobre os rendimentos do trabalho do reformado
+     */
+    @Override
+    public float obterTaxaRendimentosTrabalho() {
+<span class="nc" id="L62">        return taxaRendimentosTrabalho;</span>
+    }
+
+    /**
+     * Devolve a taxa sobre os outros rendimentos do reformado.
+     *
+     * @return taxa(%) sobre os outros rendimentos do reformado
+     */
+    @Override
+    public float obterTaxaOutrosRendimentos() {
+<span class="nc" id="L72">        return taxaOutrosRendimentos;</span>
+    }
+
+    /**
+     * Devolve a taxa sobre o rendimento do trabalho aplicada a todos os
+     * reformados.
+     *
+     * @return taxa(%) sobre o rendimento do trabalho dos reformados
+     */
+    public static float getTaxaRendimentosTrabalho() {
+<span class="nc" id="L82">        return taxaRendimentosTrabalho;</span>
+    }
+
+    /**
+     * Devolve a taxa sobre os outros rendimentos aplicada a todos os
+     * reformados.
+     *
+     * @return taxa(%) sobre os outros rendimentos dos reformados
+     */
+    public static float getTaxaOutrosRendimentos() {
+<span class="nc" id="L92">        return taxaOutrosRendimentos;</span>
+    }
+
+    /**
+     * Modifica a taxa sobre os rendimentos do trabalho aplicada a todos os
+     * reformados.
+     *
+     * @param taxaRendimentosTrabalho a nova taxa(%) sobre os rendimentos do 
+     *                                trabalho dos reformados
+     * 
+     */
+    public static void setTaxaRendimentosTrabalho(float taxaRendimentosTrabalho) {
+<span class="nc" id="L104">        Reformado.taxaRendimentosTrabalho = taxaRendimentosTrabalho;</span>
+<span class="nc" id="L105">    }</span>
+
+    /**
+     * Modifica a taxa sobre os outros rendimentos aplicada a todos os
+     * reformados.
+     *
+     * @param taxaOutrosRendimentos a nova taxa(%) sobre os outros rendimentos 
+     *                              dos reformados
+     */
+    public static void setTaxaOutrosRendimentos(float taxaOutrosRendimentos) {
+<span class="nc" id="L115">        Reformado.taxaOutrosRendimentos = taxaOutrosRendimentos;</span>
+<span class="nc" id="L116">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

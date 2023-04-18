@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: impostos.TrabalhadorContaPropriaTest
+-------------------------------------------------------------------------------
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 13, Time elapsed: 0.141 sec

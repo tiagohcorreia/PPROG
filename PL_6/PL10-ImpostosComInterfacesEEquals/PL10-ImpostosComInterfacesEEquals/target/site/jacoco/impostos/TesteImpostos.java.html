@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TesteImpostos.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PL10-ImpostosComInterfacesEEquals</a> &gt; <a href="index.source.html" class="el_package">impostos</a> &gt; <span class="el_source">TesteImpostos.java</span></div><h1>TesteImpostos.java</h1><pre class="source lang-java linenums">package impostos;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+<span class="nc" id="L8">public class TesteImpostos {</span>
+
+    public static void main(String[] args) {
+
+<span class="nc" id="L12">        List&lt;Contribuinte&gt; contribuintes = new ArrayList&lt;&gt;();</span>
+
+//        contribuintes.add(new Desempregado(&quot;Lito Vidal&quot;, &quot;Lisboa&quot;, 230, 1));
+//        contribuintes.add(new Reformado(&quot;Valter Cubilhas&quot;, &quot;Olival&quot;, 600, 400));
+//        contribuintes.add(new Desempregado(&quot;Paulo Santos&quot;, &quot;Braga&quot;, 150, 4));
+//        contribuintes.add(new TrabalhadorContaOutrem(&quot;Ana&quot;, &quot;Ovar&quot;, 1800, 300, &quot;CMM&quot;));
+//        contribuintes.add(new Reformado(&quot;Jaime Magalhães&quot;, &quot;Porto&quot;, 1500, 100));
+//        contribuintes.add(new TrabalhadorContaOutrem(&quot;Salvio&quot;, &quot;Seixal&quot;, 8000, 1000, &quot;SSB&quot;));
+//        contribuintes.add(new TrabalhadorContaPropria(&quot;Mário&quot;, &quot;Guarda&quot;, 1500, 300, &quot;Eletricista&quot;));
+//        contribuintes.add(new Reformado(&quot;Aníbal Silva&quot;, &quot;Coimbra&quot;, 1000, 500));
+//        contribuintes.add(new TrabalhadorContaOutrem(&quot;João&quot;, &quot;Lisboa&quot;, 800, 100, &quot;CML&quot;));
+//        contribuintes.add(new TrabalhadorContaPropria(&quot;Carla&quot;, &quot;Porto&quot;, 15000, 1000, &quot;Advogado&quot;));
+//        contribuintes.add(new Desempregado(&quot;Maria Sá&quot;, &quot;Afife&quot;, 230, 8));
+
+<span class="nc" id="L26">         Contribuinte ctb1 = new TrabalhadorContaOutrem(&quot;Marta Meireles&quot;,&quot;Braga&quot;,1000.0f,800.0f,&quot;UnifiedLDA&quot;);</span>
+<span class="nc" id="L27">         Contribuinte ctb2 = new TrabalhadorContaPropria(&quot;Jorge Mendes&quot;,&quot;Porto&quot;,2500.0f,500.0f,&quot;Programador&quot;);</span>
+<span class="nc" id="L28">         contribuintes.add(ctb1);</span>
+<span class="nc" id="L29">         contribuintes.add(ctb2);</span>
+         
+<span class="nc" id="L31">        listar(&quot;#### Contribuintes ####&quot;, contribuintes);</span>
+
+//        System.out.println(contribuintes.remove(new Desempregado(&quot;Lito Vidal&quot;, &quot;Lisboa&quot;, 230, 1)));
+//
+//        listar(&quot;#### Desempregado removido ####&quot;, contribuintes);
+//
+//        System.out.println(&quot;\n#### Equals 1 ####\n&quot;);
+//        Contribuinte c1 = new Reformado(&quot;Aníbal Silva&quot;, &quot;Coimbra&quot;, 1000, 500);
+//        Contribuinte c2 = new Reformado(&quot;Aníbal Silva&quot;, &quot;Coimbra&quot;, 1000, 500);
+//        System.out.printf(&quot;%s%n%n equals %n%n%s%n%n = %s%n&quot;, c1, c2, c1.equals(c2));
+//
+//        System.out.println(&quot;\n#### Equals 2 ####\n&quot;);
+//        Contribuinte c3 = new Reformado(&quot;Jaime Magalhães&quot;, &quot;Porto&quot;, 1500, 100);
+//        System.out.printf(&quot;%s%n%n equals %n%n%s%n%n = %s%n&quot;, c1, c3, c1.equals(c3));
+//
+//        System.out.println(&quot;\n#### Equals 3 ####\n&quot;);
+//        Contribuinte c4 = new TrabalhadorContaOutrem(&quot;Salvio Salvador&quot;, &quot;Seixal&quot;, 8000, 1000, &quot;SSB&quot;);
+//        System.out.printf(&quot;%s%n%n equals %n%n%s%n%n = %s%n&quot;, c1, c4, c1.equals(c4));
+//
+//        Comparator&lt;Contribuinte&gt; criterio1 = new Comparator&lt;Contribuinte&gt;() {
+//
+//            @Override
+//            public int compare(Contribuinte c1, Contribuinte c2) {
+//                return c1.getClass().getName().compareTo(c2.getClass().getName());
+//            }
+//
+//        };
+//        
+//        Collections.sort(contribuintes, Collections.reverseOrder(criterio1));
+//        listar(&quot;#### Ordem alfabética inversa dos tipos de contribuintes ####&quot;, contribuintes);
+//
+//        Comparator&lt;Contribuinte&gt; criterio2 = new Comparator&lt;Contribuinte&gt;() {
+//
+//            @Override
+//            public int compare(Contribuinte c1, Contribuinte c2) {
+//                int comparacaoTipoContribuinte = c1.getClass().getName().compareTo(c2.getClass().getName());
+//                if (comparacaoTipoContribuinte == 0) {
+//                    return c1.getNome().compareTo(c2.getNome());
+//                } else {
+//                    return comparacaoTipoContribuinte;
+//                }
+//            }
+//
+//        };
+//
+//        Collections.sort(contribuintes, criterio2);
+//        listar(&quot;#### Ordem alfabética dos tipos de contribuintes \n&quot;
+//                + &quot; e ordem alfabética dos nomes em cada tipo de contribuinte ####&quot;, contribuintes);
+
+<span class="nc" id="L80">    }</span>
+
+    private static void listar(String titulo, List&lt;Contribuinte&gt; a) {
+<span class="nc" id="L83">        System.out.println(&quot;\n&quot; + titulo);</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        for (Contribuinte c : a) {</span>
+<span class="nc" id="L85">            System.out.println(&quot;\n&quot; + c + &quot;\nImposto: &quot; + c.calcularImposto() + &quot;€&quot;);</span>
+<span class="nc" id="L86">        }</span>
+<span class="nc" id="L87">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

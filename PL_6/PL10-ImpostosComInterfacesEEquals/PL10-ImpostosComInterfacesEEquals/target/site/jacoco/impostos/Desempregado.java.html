@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Desempregado.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PL10-ImpostosComInterfacesEEquals</a> &gt; <a href="index.source.html" class="el_package">impostos</a> &gt; <span class="el_source">Desempregado.java</span></div><h1>Desempregado.java</h1><pre class="source lang-java linenums">package impostos;
+
+/**
+ * Representa um desempregado através do seu nome, morada, outros rendimentos e
+ * meses de paragem.
+ *
+ * @author ISEP-DEI-PPROG
+ */
+public class Desempregado extends Contribuinte {
+
+    /**
+     * O número de meses de paragem do desempregado.
+     */
+    private int mesesParagem;
+
+    /**
+     * O número de meses de paragem do desempregado por omissão.
+     */
+    private static final int MESES_PARAGEM_POR_OMISSAO = 0;
+    
+    /**
+     * A taxa(%) sobre os outros rendimentos aplicada a todos os desempregados.
+     */
+<span class="fc" id="L24">    private static float taxaOutrosRendimentos = 2;</span>
+
+    /**
+     * Constrói uma instância de Desempregado recebendo o seu nome, morada,
+     * outros rendimentos e meses de paragem.
+     *
+     * @param nome o nome do desempregado
+     * @param morada a morada do desempregado
+     * @param outrosRendimentos o valor dos outros rendimentos do desempregado
+     * @param mesesParagem o número de meses de paragem do desempregado
+     */
+    public Desempregado(String nome, String morada, float outrosRendimentos, 
+                        int mesesParagem) {
+<span class="fc" id="L37">        super(nome, morada, outrosRendimentos);</span>
+<span class="fc" id="L38">        this.mesesParagem = mesesParagem;</span>
+<span class="fc" id="L39">    }</span>
+
+    /**
+     * Constrói uma instância de Desempregado atribuindo o nome por omissão, a
+     * morada por omissão, os outros rendimentos por omissão e meses de paragem
+     * por omissão.
+     */
+    public Desempregado() {
+<span class="nc" id="L47">        super();</span>
+<span class="nc" id="L48">        mesesParagem = MESES_PARAGEM_POR_OMISSAO;</span>
+<span class="nc" id="L49">    }</span>
+
+    /**
+     * Devolve o número de meses de paragem do desempregado.
+     *
+     * @return o número de meses de paragem do desempregado
+     */
+    public int getMesesParagem() {
+<span class="fc" id="L57">        return mesesParagem;</span>
+    }
+
+    /**
+     * Modifica o número de meses de paragem do desempregado.
+     *
+     * @param mesesParagem o novo número de meses de paragem do desempregado
+     */
+    public void setMesesParagem(int mesesParagem) {
+<span class="nc" id="L66">        this.mesesParagem = mesesParagem;</span>
+<span class="nc" id="L67">    }</span>
+
+    /**
+     * Devolve a descrição textual do desempregado.
+     *
+     * @return caraterísticas do desempregado
+     */
+    public String toString() {
+<span class="nc" id="L75">        return String.format(&quot;DESEMPREGADO %n%s %nN. de Meses de Paragem: %d&quot;</span>
+                + &quot;%nTaxa sobre Outros Rendimentos: %.1f%%&quot;,
+<span class="nc" id="L77">                super.toString(), mesesParagem, taxaOutrosRendimentos);</span>
+    }
+
+    /**
+     * Compara o desempregado com o objeto recebido.
+     *
+     * @param outroObjeto o objeto a comparar com o desempregado
+     * @return true se o objeto recebido representar outro desempregado
+     *         equivalente ao desempregado. Caso contrário, retorna false.
+     */
+    @Override
+    public boolean equals(Object outroObjeto) {
+<span class="fc bfc" id="L89" title="All 2 branches covered.">        if (!super.equals(outroObjeto)) {</span>
+<span class="fc" id="L90">            return false;</span>
+        }
+<span class="fc" id="L92">        Desempregado outroDesempregado = (Desempregado) outroObjeto;</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">        return mesesParagem == outroDesempregado.mesesParagem;</span>
+    }    
+    
+    /**
+     * Devolve a taxa sobre os outros rendimentos aplicada a todos os
+     * desempregados.
+     *
+     * @return taxa(%) sobre os outros rendimentos dos desempregados
+     */
+    public static float getTaxaOutrosRendimentos() {
+<span class="nc" id="L103">        return taxaOutrosRendimentos;</span>
+    }
+
+    /**
+     * Modifica a taxa sobre os outros rendimentos aplicada a todos os
+     * desempregados.
+     *
+     * @param taxaOutrosRendimentos a nova taxa(%) sobre os outros  
+     *                              rendimentos dos desempregados
+     */
+    public static void setTaxaOutrosRendimentos(float taxaOutrosRendimentos) {
+<span class="nc" id="L114">        Desempregado.taxaOutrosRendimentos = taxaOutrosRendimentos;</span>
+<span class="nc" id="L115">    }</span>
+
+    /**
+     * Devolve o montante de imposto a pagar pelo desempregado.
+     *
+     * @return o montante do imposto a pagar pelo desempregado
+     */
+    @Override
+    public float calcularImposto() {
+<span class="fc" id="L124">        return getOutrosRendimentos() * taxaOutrosRendimentos / 100;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
